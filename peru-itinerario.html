@@ -7,20 +7,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
+    /* Pantone 17-1818 — Red Violet */
     --red-violet: #B5324E;
-    --red-violet-light: #D4617A;
-    --red-violet-pale: #F5E6EA;
-    --olive: #6B7C4B;
-    --olive-light: #8A9C64;
-    --olive-pale: #EDF0E7;
-    --white: #FAFAF8;
-    --gray-50: #F4F4F2;
-    --gray-100: #E8E8E5;
-    --gray-200: #D0D0CC;
-    --gray-400: #9A9A95;
-    --gray-600: #5C5C58;
-    --gray-800: #2E2E2B;
-    --black: #1A1A18;
+    --red-violet-light: #C9556A;
+    --red-violet-pale: #F2DDE2;
+    /* Pantone 16-1529 TCX — Sandstorm (terracota/durazno) */
+    --olive: #C47A52;
+    --olive-light: #D4956A;
+    --olive-pale: #FAF0E8;
+    /* Pantone 11-0601 TCX — Blanc de Blanc (marfil cálido) */
+    --white: #F5F0E8;
+    --gray-50: #EDE8DF;
+    --gray-100: #E0D9CE;
+    --gray-200: #C8BFB2;
+    --gray-400: #9A9088;
+    --gray-600: #5C544C;
+    --gray-800: #2E2820;
+    --black: #8B9E6E;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -52,9 +55,8 @@
   .hero-bg {
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse 80% 60% at 60% 30%, rgba(181,50,78,0.35) 0%, transparent 65%),
-      radial-gradient(ellipse 60% 50% at 20% 70%, rgba(107,124,75,0.25) 0%, transparent 60%),
-      linear-gradient(175deg, #1A1A18 0%, #2E2E2B 100%);
+      radial-gradient(ellipse 80% 60% at 60% 30%, rgba(181,50,78,0.18) 0%, transparent 65%),
+      linear-gradient(175deg, #ffffff 0%, #c8d8b0 40%, #8B9E6E 100%);
   }
 
   .hero-ornament {
@@ -113,7 +115,7 @@
 
   .hero-dates span {
     font-size: 13px;
-    color: var(--gray-400);
+    color: #ffffff;
     letter-spacing: 0.05em;
   }
 
@@ -130,7 +132,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    color: var(--gray-400);
+    color: #ffffff;
     font-size: 11px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -148,7 +150,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(250,250,248,0.95);
+    background: rgba(245,240,232,0.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--gray-100);
   }
@@ -298,7 +300,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 28px;
     font-weight: 700;
-    color: var(--red-violet-light);
+    color: #ffffff;
     line-height: 1;
   }
 
@@ -306,7 +308,7 @@
     font-size: 9px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--gray-400);
+    color: #ffffff;
     margin-top: 2px;
   }
 
@@ -498,7 +500,7 @@
   }
 
   .costs-group-title {
-    background: var(--gray-800);
+    background: var(--red-violet);
     color: var(--white);
     font-size: 10px;
     font-weight: 500;
@@ -900,7 +902,7 @@
         </div>
       </div>
       <div class="day-body">
-        <div class="notice"><strong>Nota:</strong> Puedes elegir 1 o combinar actividades según tu condición física y tiempo disponible.</div>
+        <div class="notice"><strong>⚠️ Elige solo 1 actividad:</strong> Por altitud y tiempo disponible, solo es posible realizar una de estas tres opciones por día. Confirma tu elección con la agencia.</div>
         <ul class="act-list">
           <li class="act-item">
             <div class="act-dot">
@@ -1347,9 +1349,9 @@
 
 <!-- ══ FOOTER ════════════════════════════ -->
 <footer class="footer">
-  <strong>Perú · Noviembre 2026</strong>
-  3 viajeros · 6 días · Una aventura única
-  <div class="footer-vv">Cotización preparada por tu agencia de viajes</div>
+  <strong style="color:#ffffff;">Perú · Noviembre 2026</strong>
+  <span style="color:#ffffff;">3 viajeros · 6 días · Una aventura única</span>
+  <div class="footer-vv"><strong style="color:#ffffff;">Desarrollado por Venimos a Vivir</strong></div>
 </footer>
 
 <script>
