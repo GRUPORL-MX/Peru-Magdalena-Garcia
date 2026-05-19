@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Perú · Noviembre 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Pantone 17-1818 — Red Violet */
+    --red-violet: #B5324E;
+    --red-violet-light: #C9556A;
+    --red-violet-pale: #F2DDE2;
+    /* Pantone 16-1529 TCX — Sandstorm (terracota/durazno) */
+    --olive: #C47A52;
+    --olive-light: #D4956A;
+    --olive-pale: #FAF0E8;
+    /* Pantone 11-0601 TCX — Blanc de Blanc (marfil cálido) */
+    --white: #F5F0E8;
+    --gray-50: #EDE8DF;
+    --gray-100: #E0D9CE;
+    --gray-200: #C8BFB2;
+    --gray-400: #9A9088;
+    --gray-600: #5C544C;
+    --gray-800: #2E2820;
+    --black: #8B9E6E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--white);
+    color: var(--gray-800);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 430px;
+    margin: 0 auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ─────────────────────────────── */
+  .hero {
+    background: var(--black);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 60% 30%, rgba(181,50,78,0.18) 0%, transparent 65%),
+      linear-gradient(175deg, #ffffff 0%, #c8d8b0 40%, #8B9E6E 100%);
+  }
+
+  .hero-ornament {
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    border: 1px solid rgba(181,50,78,0.2);
+    pointer-events: none;
+  }
+  .hero-ornament::after {
+    content: '';
+    position: absolute;
+    inset: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(181,50,78,0.15);
+  }
+
+  .hero-tag {
+    position: relative;
+    display: inline-block;
+    background: var(--red-violet);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin: 0 24px 20px;
+    width: fit-content;
+  }
+
+  .hero-title {
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    font-size: 62px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 0.95;
+    padding: 0 24px;
+    letter-spacing: -1px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--red-violet-light);
+  }
+
+  .hero-dates {
+    position: relative;
+    margin: 20px 24px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-dates span {
+    font-size: 13px;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-dates .dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--red-violet);
+    flex-shrink: 0;
+  }
+
+  .hero-scroll {
+    position: relative;
+    margin: 32px 24px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .hero-scroll::before {
+    content: '';
+    display: block;
+    width: 32px; height: 1px;
+    background: var(--red-violet);
+  }
+
+  /* ── NAV ──────────────────────────────── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(245,240,232,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .nav-inner {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 0 16px;
+    gap: 0;
+  }
+
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  .nav-btn {
+    flex-shrink: 0;
+    padding: 14px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-btn.active {
+    color: var(--red-violet);
+    border-bottom-color: var(--red-violet);
+  }
+
+  /* ── SECTIONS ─────────────────────────── */
+  .section {
+    display: none;
+    animation: fadeUp 0.35s ease;
+  }
+
+  .section.active { display: block; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTION HEADER ───────────────────── */
+  .section-header {
+    padding: 32px 24px 24px;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red-violet);
+    margin-bottom: 6px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1.1;
+  }
+
+  .section-sub {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--gray-600);
+    line-height: 1.5;
+  }
+
+  /* ── OVERVIEW CARDS ───────────────────── */
+  .overview-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .overview-cell {
+    padding: 20px 16px;
+    border-right: 1px solid var(--gray-100);
+    text-align: center;
+  }
+
+  .overview-cell:last-child { border-right: none; }
+
+  .overview-cell .val {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1;
+  }
+
+  .overview-cell .lbl {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-top: 4px;
+  }
+
+  /* ── TIMELINE ─────────────────────────── */
+  .timeline {
+    padding: 24px 0;
+  }
+
+  .day-card {
+    position: relative;
+    margin: 0 16px 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    transition: box-shadow 0.2s;
+  }
+
+  .day-card:active {
+    box-shadow: 0 4px 20px rgba(181,50,78,0.12);
+  }
+
+  .day-header {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .day-num {
+    width: 60px;
+    flex-shrink: 0;
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 8px;
+  }
+
+  .day-num .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  .day-num .mon {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-top: 2px;
+  }
+
+  .day-info {
+    flex: 1;
+    padding: 14px 16px;
+  }
+
+  .day-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red-violet);
+    margin-bottom: 2px;
+  }
+
+  .day-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1.2;
+  }
+
+  .day-subtitle {
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-top: 3px;
+  }
+
+  .day-body {
+    padding: 0 16px 16px;
+    border-top: 1px solid var(--gray-100);
+  }
+
+  .act-list { list-style: none; padding-top: 14px; }
+
+  .act-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray-50);
+  }
+
+  .act-item:last-child { border-bottom: none; }
+
+  .act-dot {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--red-violet-pale);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .act-dot svg { width: 11px; height: 11px; }
+
+  .act-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-800);
+    line-height: 1.3;
+  }
+
+  .act-note {
+    font-size: 11px;
+    color: var(--gray-400);
+    margin-top: 1px;
+  }
+
+  .act-price {
+    margin-left: auto;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--olive);
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+
+  /* ── ALTITUDE BADGE ───────────────────── */
+  .alt-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--olive-pale);
+    color: var(--olive);
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-top: 2px;
+  }
+
+  /* ── HOTEL CARDS ──────────────────────── */
+  .hotel-grid { padding: 20px 16px; display: flex; flex-direction: column; gap: 16px; }
+
+  .hotel-card {
+    border-radius: 12px;
+    border: 1px solid var(--gray-100);
+    overflow: hidden;
+  }
+
+  .hotel-card.recommended {
+    border-color: var(--red-violet);
+    box-shadow: 0 0 0 1px var(--red-violet);
+  }
+
+  .hotel-badge {
+    background: var(--red-violet);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    text-align: center;
+  }
+
+  .hotel-body { padding: 16px; }
+
+  .hotel-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--black);
+  }
+
+  .hotel-stars {
+    color: var(--red-violet);
+    font-size: 12px;
+    margin-top: 2px;
+    letter-spacing: 2px;
+  }
+
+  .hotel-perks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 12px 0;
+  }
+
+  .perk-tag {
+    font-size: 11px;
+    background: var(--gray-50);
+    color: var(--gray-600);
+    padding: 3px 9px;
+    border-radius: 20px;
+    border: 1px solid var(--gray-100);
+  }
+
+  .hotel-price {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--gray-100);
+  }
+
+  .price-total {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--black);
+  }
+
+  .price-per {
+    font-size: 12px;
+    color: var(--gray-400);
+  }
+
+  .price-pp {
+    margin-left: auto;
+    font-size: 13px;
+    color: var(--olive);
+    font-weight: 500;
+  }
+
+  /* ── COSTS TABLE ──────────────────────── */
+  .costs-wrap { padding: 20px 16px; }
+
+  .costs-group {
+    margin-bottom: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--gray-100);
+  }
+
+  .costs-group-title {
+    background: var(--red-violet);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+  }
+
+  .cost-row {
+    display: flex;
+    align-items: center;
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--gray-50);
+    gap: 10px;
+  }
+
+  .cost-row:last-child { border-bottom: none; }
+
+  .cost-name {
+    font-size: 13px;
+    color: var(--gray-800);
+    flex: 1;
+  }
+
+  .cost-pp {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-800);
+    text-align: right;
+    min-width: 80px;
+  }
+
+  .cost-note {
+    font-size: 11px;
+    color: var(--gray-400);
+    display: block;
+    margin-top: 1px;
+  }
+
+  .total-bar {
+    background: var(--red-violet);
+    color: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+  }
+
+  .total-bar .tl { font-size: 12px; font-weight: 500; letter-spacing: 0.05em; opacity: 0.85; }
+  .total-bar .tv { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; }
+  .total-bar .ts { font-size: 11px; opacity: 0.7; text-align: right; }
+
+  /* ── INFO BLOCKS ──────────────────────── */
+  .info-wrap { padding: 20px 16px; display: flex; flex-direction: column; gap: 16px; }
+
+  .info-block {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--gray-100);
+  }
+
+  .info-block-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: var(--gray-50);
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .info-block-title .icon {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    background: var(--red-violet-pale);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .info-block-title .icon svg { width: 14px; height: 14px; color: var(--red-violet); }
+
+  .info-block-title span {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--black);
+  }
+
+  .info-list { list-style: none; }
+
+  .info-list li {
+    display: flex;
+    gap: 10px;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--gray-50);
+    font-size: 13px;
+    color: var(--gray-800);
+    line-height: 1.4;
+  }
+
+  .info-list li:last-child { border-bottom: none; }
+
+  .info-list li::before {
+    content: '—';
+    color: var(--red-violet);
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+
+  .alt-list li { flex-direction: column; }
+
+  .alt-list .place { font-weight: 500; }
+  .alt-list .meters {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--olive-pale);
+    color: var(--olive);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-top: 3px;
+    width: fit-content;
+  }
+
+  .temp-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--gray-50);
+  }
+
+  .temp-row:last-child { border-bottom: none; }
+
+  .temp-label { font-size: 12px; color: var(--gray-600); }
+  .temp-val { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--black); }
+  .temp-range { font-size: 12px; color: var(--gray-400); margin-top: 1px; text-align: right; }
+
+  /* ── TYC ──────────────────────────────── */
+  .tyc-wrap { padding: 20px 16px; }
+
+  .tyc-item {
+    margin-bottom: 14px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: var(--gray-50);
+    border-left: 3px solid var(--red-violet);
+  }
+
+  .tyc-num {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red-violet);
+    margin-bottom: 4px;
+  }
+
+  .tyc-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--black);
+    margin-bottom: 4px;
+  }
+
+  .tyc-text {
+    font-size: 12px;
+    color: var(--gray-600);
+    line-height: 1.55;
+  }
+
+  /* ── FOOTER ───────────────────────────── */
+  .footer {
+    padding: 32px 24px;
+    text-align: center;
+    border-top: 1px solid var(--gray-100);
+    background: var(--black);
+    color: var(--gray-400);
+    font-size: 12px;
+  }
+
+  .footer strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .footer-vv {
+    margin-top: 16px;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red-violet);
+  }
+
+  /* ── PILL CHIPS ───────────────────────── */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+
+  .chip-red { background: var(--red-violet-pale); color: var(--red-violet); }
+  .chip-olive { background: var(--olive-pale); color: var(--olive); }
+  .chip-gray { background: var(--gray-100); color: var(--gray-600); }
+
+  /* ── NOTICE BANNER ────────────────────── */
+  .notice {
+    margin: 0 16px 16px;
+    padding: 12px 14px;
+    background: var(--red-violet-pale);
+    border-radius: 10px;
+    border-left: 3px solid var(--red-violet);
+    font-size: 12px;
+    color: var(--gray-800);
+    line-height: 1.5;
+  }
+
+  .notice strong { color: var(--red-violet); }
+
+  /* ── COTIZ STATUS ─────────────────────── */
+  .status-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 16px 20px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: var(--olive-pale);
+    border: 1px solid rgba(107,124,75,0.2);
+  }
+
+  .status-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--olive);
+    flex-shrink: 0;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .status-text {
+    font-size: 12px;
+    color: var(--olive);
+    font-weight: 500;
+  }
+
+  /* ─────────────────────────────────────── */
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ornament"></div>
+  <div class="hero-tag">Cotización de viaje · Octubre 2026</div>
+  <h1 class="hero-title">Perú,<br><em>te espera.</em></h1>
+  <div class="hero-dates">
+    <span>6 octubre</span>
+    <span class="dot"></span>
+    <span>11 octubre</span>
+    <span class="dot"></span>
+    <span>6 días</span>
+  </div>
+  <div class="hero-scroll">desliza para explorar</div>
+</section>
+
+<!-- ══ NAV ═══════════════════════════════ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="show('itinerario', this)">Itinerario</button>
+    <button class="nav-btn" onclick="show('hospedaje', this)">Hospedaje</button>
+    <button class="nav-btn" onclick="show('costos', this)">Tours</button>
+    <button class="nav-btn" onclick="show('esencial', this)">Tips</button>
+    <button class="nav-btn" onclick="show('tyc', this)">T&C</button>
+  </div>
+</nav>
+
+<!-- ══ ITINERARIO ════════════════════════ -->
+<section id="itinerario" class="section active">
+
+  <div class="section-header">
+    <div class="section-label">Día a día</div>
+    <div class="section-title">Tu aventura,<br>paso a paso</div>
+    <p class="section-sub">Desde el vuelo hasta el regreso — todo lo que necesitas saber para vivir Perú al máximo.</p>
+  </div>
+
+  <div class="overview-strip">
+    <div class="overview-cell">
+      <div class="val">6</div>
+      <div class="lbl">Días</div>
+    </div>
+    <div class="overview-cell">
+      <div class="val">3</div>
+      <div class="lbl">Viajeros</div>
+    </div>
+    <div class="overview-cell">
+      <div class="val">7</div>
+      <div class="lbl">Actividades</div>
+    </div>
+  </div>
+
+  <div class="notice" style="margin: 16px 16px 0;">
+    <strong>✈️ Vuelos no incluidos en cotización</strong> — Se confirman por separado. Costos aproximados por persona (vuelo redondo):<br><br>
+    🇲🇽→🇵🇪 &nbsp;<strong>México – Lima:</strong> $7,000 – $9,000 MXN<br>
+    🇵🇪✈️🇵🇪 &nbsp;<strong>Lima – Cusco:</strong> $2,000 – $3,000 MXN
+  </div>
+
+  <div class="timeline">
+
+    <!-- DÍA 1 -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-num">
+          <div class="num">6</div>
+          <div class="mon">Oct</div>
+        </div>
+        <div class="day-info">
+          <div class="day-label">Día 1 — Partida</div>
+          <div class="day-title">México → Lima</div>
+          <div class="day-subtitle">El viaje comienza aquí</div>
+        </div>
+      </div>
+      <div class="day-body">
+        <ul class="act-list">
+          <li class="act-item">
+            <div class="act-dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--red-violet)" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+            </div>
+            <div>
+              <div class="act-name">Vuelo México – Lima</div>
+              <div class="act-note">Pendiente de confirmar horario</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DÍA 2 -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-num">
+          <div class="num">7</div>
+          <div class="mon">Oct</div>
+        </div>
+        <div class="day-info">
+          <div class="day-label">Día 2 — Llegada</div>
+          <div class="day-title">Lima → Cusco</div>
+          <div class="day-subtitle">Primera mirada a los Andes</div>
+        </div>
+      </div>
+      <div class="day-body">
+        <ul class="act-list">
+          <li class="act-item">
+            <div class="act-dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--red-violet)" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+            </div>
+            <div>
+              <div class="act-name">Vuelo Lima – Cusco</div>
+              <div class="act-note">Tómate tu tiempo para aclimatarte</div>
+            </div>
+            <div class="act-price">—</div>
+          </li>
+          <li class="act-item">
+            <div class="act-dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--red-violet)" stroke-width="2.5"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 1 8 8c0 5.4-8 14-8 14S4 15.4 4 10a8 8 0 0 1 8-8z"/></svg>
+            </div>
+            <div>
+              <div class="act-name">City Tour Cusco</div>
+              <div class="act-note">Centro histórico y primeras impresiones</div>
+              <span class="alt-badge">▲ 3,400 m</span>
+            </div>
+            <div class="act-price">$200 MXN</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DÍA 3 -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-num">
+          <div class="num">8</div>
+          <div class="mon">Oct</div>
+        </div>
+        <div class="day-info">
+          <div class="day-label">Día 3 — Aventura</div>
+          <div class="day-title">Las Alturas de Cusco</div>
+          <div class="day-subtitle">Elige tu ruta hacia las nubes</div>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="notice"><strong>⚠️ Elige solo 1 actividad:</strong> Por altitud y tiempo disponible, solo es posible realizar una de estas tres opciones por día. Confirma tu elección con la agencia.</div>
+        <ul class="act-list">
+          <li class="act-item">
+            <div class="act-dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--red-violet)" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.08 3.4 2 2 0 0 1 3.05 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+            </div>
+            <div>
+              <div class="act-name">Laguna de Humantay</div>
+              <div class="act-note">Turquesa entre glaciares</div>
+              <span class="alt-badge">▲ 4,200 m</span>
+            </div>
+            <div class="act-price">$500 MXN</div>
+          </li>
+          <li class="act-item">
+            <div class="act-dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--red-violet)" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.08 3.4 2 2 0 0 1 3.05 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16z"/></svg>
+            </div>
+            <div>
+              <div class="act-name">7 Lagunas de Ausangate</div>
+              <div class="act-note">Espectáculo de color y altura</div>
+              <span class="alt-badge">▲ 4,200 m</span>
+            </div>
+            <div class="act-price">$700 MXN</div>
+          </li>
+          <li class="act-item">
+            <div class="act-dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--red-violet)" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div>
+              <div class="act-name">Montaña de 7 Colores</div>
+              <div class="act-note">A pie <span class="chip chip-olive">$500 MXN</span> · En cuatrimoto <span class="chip chip-red">$1,000 MXN</span></div>
+              <span class="alt-badge">▲ 5,000 m</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DÍA 4 -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-num">
+          <div class="num">9</div>
+          <div class="mon">Oct</div>
+        </div>
+        <div class="day-info">
+          <div class="day-label">Día 4 — Historia viva</div>
+          <div class="day-title">Valle Sagrado</div>
+          <div class="day-subtitle">Corazón del Imperio Inca</div>
+        </div>
+      </div>
+      <div class="day-body">
+        <ul class="act-list">
+          <li class="act-item">
+            <div class="act-dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--red-violet)" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h18M3 15h18M15 3v18"/></svg>
+            </div>
+            <div>
+              <div class="act-name">Tour Valle Sagrado</div>
+              <div class="act-note">Pisac, Ollantaytambo y mercados andinos</div>
+            </div>
+            <div class="act-price">$500 MXN</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DÍA 5 -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-num">
+          <div class="num">10</div>
+          <div class="mon">Oct</div>
+        </div>
+        <div class="day-info">
+          <div class="day-label">Día 5 — El gran momento</div>
+          <div class="day-title">Machu Picchu</div>
+          <div class="day-subtitle">La ciudad perdida de los Incas</div>
+        </div>
+      </div>
+      <div class="day-body">
+        <ul class="act-list">
+          <li class="act-item">
+            <div class="act-dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--red-violet)" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div>
+              <div class="act-name">Visita Machu Picchu</div>
+              <div class="act-note">Reserva con anticipación — cupo limitado</div>
+            </div>
+            <div class="act-price">$6,000 MXN</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DÍA 6 -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-num">
+          <div class="num">11</div>
+          <div class="mon">Oct</div>
+        </div>
+        <div class="day-info">
+          <div class="day-label">Día 6 — Cierre</div>
+          <div class="day-title">Regreso a Casa</div>
+          <div class="day-subtitle">Cusco → Lima → México</div>
+        </div>
+      </div>
+      <div class="day-body">
+        <ul class="act-list">
+          <li class="act-item">
+            <div class="act-dot">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--red-violet)" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+            </div>
+            <div>
+              <div class="act-name">Vuelo Cusco → Lima → México</div>
+              <div class="act-note">Con las memorias más increíbles</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- /timeline -->
+</section>
+
+<!-- ══ HOSPEDAJE ═════════════════════════ -->
+<section id="hospedaje" class="section">
+  <div class="section-header">
+    <div class="section-label">Dónde dormir</div>
+    <div class="section-title">Tu refugio<br>cada noche</div>
+    <p class="section-sub">Una noche en Lima y cuatro en Cusco. Elige tu opción para la estancia en Cusco.</p>
+  </div>
+
+  <div class="hotel-grid">
+
+    <!-- Lima -->
+    <div style="padding: 0 0 4px; margin-bottom: -4px;">
+      <div style="font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--red-violet);padding:0 2px 6px;">📍 Lima · 06 — 07 Oct</div>
+    </div>
+
+    <div class="hotel-card recommended">
+      <div class="hotel-badge">✦ Noche 1 — Lima</div>
+      <div class="hotel-body">
+        <div class="hotel-name">Courtyard by Marriott<br>Lima Miraflores</div>
+        <div class="hotel-stars">★★★★</div>
+        <div class="hotel-perks">
+          <span class="perk-tag">Sin desayuno</span>
+          <span class="perk-tag">2 camas matrimoniales</span>
+          <span class="perk-tag">Miraflores</span>
+          <span class="perk-tag">4 estrellas</span>
+        </div>
+        <div class="hotel-price">
+          <span class="price-total">$3,400</span>
+          <span class="price-per">MXN cuarto</span>
+          <span class="price-pp">$1,133/persona</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cusco label -->
+    <div style="padding: 12px 0 4px; margin-bottom: -4px;">
+      <div style="font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--red-violet);padding:0 2px 6px;">📍 Cusco · 07 — 11 Oct · Elige 1 opción</div>
+    </div>
+
+    <!-- Cusco Opción 1 -->
+    <div class="hotel-card recommended">
+      <div class="hotel-badge">✦ Opción 1 — Cusco</div>
+      <div class="hotel-body">
+        <div class="hotel-name">Sonesta Hotel Yucay<br><span style="font-size:13px;color:var(--gray-600)">Valle Sagrado</span></div>
+        <div class="hotel-stars">★★★★</div>
+        <div class="hotel-perks">
+          <span class="perk-tag">Desayuno incluido</span>
+          <span class="perk-tag">3 camas matrimoniales</span>
+          <span class="perk-tag">Valle Sagrado</span>
+          <span class="perk-tag">4 estrellas</span>
+        </div>
+        <div class="hotel-price">
+          <span class="price-total">$16,024</span>
+          <span class="price-per">MXN total</span>
+          <span class="price-pp">$5,341/persona</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cusco Opción 2 -->
+    <div class="hotel-card">
+      <div class="hotel-body">
+        <div class="hotel-name">Casona Corrales<br>Hotel Boutique</div>
+        <div class="hotel-stars">★★★<span style="font-size:10px;">½</span></div>
+        <div class="hotel-perks">
+          <span class="perk-tag">Desayuno incluido</span>
+          <span class="perk-tag">3 camas queen</span>
+          <span class="perk-tag">Hotel boutique</span>
+          <span class="perk-tag">3.5 estrellas</span>
+        </div>
+        <div class="hotel-price">
+          <span class="price-total">$10,706</span>
+          <span class="price-per">MXN total</span>
+          <span class="price-pp">$3,569/persona</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="notice" style="margin-top:0">
+    <strong>Traslados:</strong> Uber es la opción más conveniente para moverse en Lima y Cusco. No está incluido en la cotización — presupuesta unos $200–400 MXN por trayecto entre actividades.
+  </div>
+
+</section>
+
+<!-- ══ COSTOS ════════════════════════════ -->
+<section id="costos" class="section">
+  <div class="section-header">
+    <div class="section-label">Costos tours & actividades</div>
+    <div class="section-title">Tours &<br>Actividades</div>
+    <p class="section-sub">Precios en pesos mexicanos (MXN) por persona. Tipo de cambio sol peruano: 1 PEN = $5 MXN.</p>
+  </div>
+
+  <div class="costs-wrap">
+
+    <div class="status-bar">
+      <div class="status-dot"></div>
+      <div class="status-text">Cotización activa · Precios sujetos a disponibilidad del día</div>
+    </div>
+
+    <!-- Tours -->
+    <div class="costs-group">
+      <div class="costs-group-title">Tours y actividades · por persona</div>
+      <div class="cost-row">
+        <div class="cost-name">City Tour Cusco</div>
+        <div class="cost-pp">$200</div>
+      </div>
+      <div class="cost-row">
+        <div class="cost-name">Laguna de Humantay</div>
+        <div class="cost-pp">$500</div>
+      </div>
+      <div class="cost-row">
+        <div class="cost-name">7 Lagunas de Ausangate</div>
+        <div class="cost-pp">$700</div>
+      </div>
+      <div class="cost-row">
+        <div class="cost-name">Montaña 7 Colores — a pie</div>
+        <div class="cost-pp">$500</div>
+      </div>
+      <div class="cost-row">
+        <div class="cost-name">Montaña 7 Colores — cuatrimoto<span class="cost-note">Precio total por cuatrimoto: $3,000 MXN</span></div>
+        <div class="cost-pp">$1,000</div>
+      </div>
+      <div class="cost-row">
+        <div class="cost-name">Valle Sagrado</div>
+        <div class="cost-pp">$500</div>
+      </div>
+      <div class="cost-row">
+        <div class="cost-name">Machu Picchu</div>
+        <div class="cost-pp">$6,000</div>
+      </div>
+    </div>
+
+    <!-- Total -->
+    <div class="total-bar">
+      <div>
+        <div class="tl">Total estimado</div>
+        <div class="tv">Pendiente</div>
+      </div>
+      <div class="ts">En consolidación<br>de precios finales</div>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- ══ TIPS ════════════════════════════ -->
+<section id="esencial" class="section">
+  <div class="section-header">
+    <div class="section-label">Lo que debes saber</div>
+    <div class="section-title">Tips para<br>tu viaje</div>
+    <p class="section-sub">Todo lo que necesitas antes de subir al avión y durante el viaje.</p>
+  </div>
+
+  <div class="info-wrap">
+
+    <!-- Clima -->
+    <div class="info-block">
+      <div class="info-block-title">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <span>Clima en octubre</span>
+      </div>
+      <div class="temp-row">
+        <div class="temp-label">☀️ Durante el día</div>
+        <div>
+          <div class="temp-val">18° – 21°C</div>
+          <div class="temp-range">Templado y agradable</div>
+        </div>
+      </div>
+      <div class="temp-row">
+        <div class="temp-label">🌙 En la noche</div>
+        <div>
+          <div class="temp-val">4° – 7°C</div>
+          <div class="temp-range">Frío — abriga bien</div>
+        </div>
+      </div>
+      <div class="temp-row">
+        <div class="temp-label">🌦️ Lluvia</div>
+        <div>
+          <div class="temp-val">~11 días</div>
+          <div class="temp-range">Lluvias esporádicas tarde</div>
+        </div>
+      </div>
+      <div class="temp-row">
+        <div class="temp-label">🕐 Horas de luz</div>
+        <div>
+          <div class="temp-val">5am – 6pm</div>
+          <div class="temp-range">13 horas de luz natural</div>
+        </div>
+      </div>
+      <div class="temp-row" style="border-bottom:none">
+        <div class="temp-label">👥 Temporada</div>
+        <div>
+          <div style="font-size:14px;font-weight:500;color:var(--olive)">Temporada Alta</div>
+          <div class="temp-range">Octubre: fin de temporada seca, vistas despejadas</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Altitudes -->
+    <div class="info-block">
+      <div class="info-block-title">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 17l5-10 4 8 3-5 4 7H3z"/></svg>
+        </div>
+        <span>Altitudes — ¡prepárate!</span>
+      </div>
+      <ul class="info-list alt-list">
+        <li>
+          <span class="place">Cusco (ciudad)</span>
+          <span class="meters">▲ 3,400 m</span>
+        </li>
+        <li>
+          <span class="place">7 Lagunas de Ausangate</span>
+          <span class="meters">▲ 4,200 m</span>
+        </li>
+        <li>
+          <span class="place">Laguna de Humantay</span>
+          <span class="meters">▲ 4,200 m</span>
+        </li>
+        <li>
+          <span class="place">Montaña de 7 Colores</span>
+          <span class="meters" style="background:var(--red-violet-pale);color:var(--red-violet)">▲ 5,000 m — máxima altitud</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Salud -->
+    <div class="info-block">
+      <div class="info-block-title">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <span>Tips de salud</span>
+      </div>
+      <ul class="info-list">
+        <li>Llevar medicamento para la altura (soroche) — indispensable. Consulta con tu médico antes del viaje.</li>
+        <li>Para las 7 Lagunas de Ausangate, se recomienda hacer primero un tour de aclimatación local (ej. Nevado de Toluca desde base) para evaluar tolerancia a la altitud.</li>
+        <li>Hidratarse bien desde el primer día. Beber mucha agua y evitar alcohol las primeras 24 horas en Cusco.</li>
+        <li>Subir despacio y descansar si sientes mareo. No forzar el ritmo el primer día.</li>
+      </ul>
+    </div>
+
+    <!-- Logística -->
+    <div class="info-block">
+      <div class="info-block-title">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <span>Logística</span>
+      </div>
+      <ul class="info-list">
+        <li><strong>Conector eléctrico:</strong> Tipo C (europeo). Trae adaptador desde México.</li>
+        <li><strong>Moneda:</strong> Sol peruano (PEN). Tipo de cambio: 1 PEN = $5 MXN.</li>
+        <li><strong>Traslados locales:</strong> Uber disponible en Cusco (verificar cobertura según zona). No incluido en cotización.</li>
+        <li><strong>Ropa recomendada:</strong> Capas. Camisa térmica, chamarra impermeable, gorro y guantes para las actividades de alta montaña.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ TÉRMINOS ══════════════════════════ -->
+<section id="tyc" class="section">
+  <div class="section-header">
+    <div class="section-label">Transparencia</div>
+    <div class="section-title">Términos &<br>Condiciones</div>
+    <p class="section-sub">Todo lo que debes saber sobre esta cotización antes de confirmar tu viaje.</p>
+  </div>
+
+  <div class="tyc-wrap">
+
+    <div class="tyc-item">
+      <div class="tyc-num">01 · Vigencia</div>
+      <div class="tyc-title">Tarifas del día</div>
+      <div class="tyc-text">Los precios están indexados al tipo de cambio USD/MXN y tienen vigencia únicamente el día de su emisión. Las tarifas pueden cambiar hasta confirmar y pagar.</div>
+    </div>
+
+    <div class="tyc-item">
+      <div class="tyc-num">02 · Disponibilidad</div>
+      <div class="tyc-title">Sujeto a confirmación</div>
+      <div class="tyc-text">Todos los servicios (vuelos, hospedaje, traslados, tours) están sujetos a disponibilidad al momento de la reservación y pago.</div>
+    </div>
+
+    <div class="tyc-item">
+      <div class="tyc-num">03 · Formas de pago</div>
+      <div class="tyc-title">Depósito o tarjeta</div>
+      <div class="tyc-text">Depósito, tarjeta de crédito/débito u otros métodos autorizados por la agencia.</div>
+    </div>
+
+    <div class="tyc-item">
+      <div class="tyc-num">04 · Confirmación</div>
+      <div class="tyc-title">Reserva oficial</div>
+      <div class="tyc-text">La reservación se confirma únicamente con el anticipo o pago total recibido y la confirmación oficial enviada por la agencia.</div>
+    </div>
+
+    <div class="tyc-item">
+      <div class="tyc-num">05 · Cambios</div>
+      <div class="tyc-title">Hasta 2 cambios gratis</div>
+      <div class="tyc-text">Dos modificaciones sin costo. A partir del tercero: cargo de $500 MXN / $25 USD por cambio. Cancelaciones pueden generar cargos según políticas de proveedores.</div>
+    </div>
+
+    <div class="tyc-item">
+      <div class="tyc-num">06 · Responsabilidad</div>
+      <div class="tyc-title">Documentación del pasajero</div>
+      <div class="tyc-text">Es responsabilidad del cliente contar con pasaporte, visas y permisos vigentes para el viaje.</div>
+    </div>
+
+    <div class="tyc-item">
+      <div class="tyc-num">07 · Seguro de viaje</div>
+      <div class="tyc-title">No incluido — se recomienda</div>
+      <div class="tyc-text">El seguro no está incluido en esta cotización. La agencia recomienda contratarlo para contar con asistencia durante el viaje.</div>
+    </div>
+
+    <div class="tyc-item">
+      <div class="tyc-num">08 · Tours y actividades</div>
+      <div class="tyc-title">Esquemas de pago independientes</div>
+      <div class="tyc-text">Algunas actividades requieren 50% de anticipo y saldo antes del día, o pago total previo. Las condiciones se informan al momento de contratar. Cancelaciones por clima o situaciones operativas se rigen por las políticas del proveedor.</div>
+    </div>
+
+    <div class="tyc-item">
+      <div class="tyc-num">09 · No uso de servicios</div>
+      <div class="tyc-title">Sin reembolso voluntario</div>
+      <div class="tyc-text">No habrá reembolso por servicios no utilizados voluntariamente por el pasajero durante el viaje.</div>
+    </div>
+
+    <div class="tyc-item">
+      <div class="tyc-num">10 · Aceptación</div>
+      <div class="tyc-title">El pago implica aceptación</div>
+      <div class="tyc-text">El pago parcial o total implica la aceptación de todos los presentes términos y condiciones.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════ -->
+<footer class="footer">
+  <strong style="color:#ffffff;">Perú · Octubre 2026</strong>
+  <span style="color:#ffffff;">3 viajeros · 6 días · Una aventura única</span>
+  <div class="footer-vv"><em style="color:#ffffff;font-size:12px;font-weight:400;font-style:italic;">Venimos a Vivir</em></div>
+</footer>
+
+<script>
+  function show(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({ top: document.querySelector('.nav').offsetTop, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
